@@ -5,9 +5,9 @@ $(function(){
     let table = $('.table');
     let ToRbtn = $('.rightBtn'),ToLbtn = $('.leftBtn'),Rbtn = $('.reBtn');
     let change = $('.change');
-    let changeFlag=false;  //是否可以点击change按钮
+    let changeFlag=false;
 
-    //前4秒 上面的牌还未发牌结束，不允许交换位置，否则会出问题，4秒后可以点击change按钮
+    //发牌结束，再交换位置
     setTimeout(function(){
         changeFlag=true;
     },4000)
@@ -49,7 +49,7 @@ $(function(){
                 .attr('id',`${i}_${j}`)
                 .data('num',poke[index].num)
                 //.html(poke[index].color+'_'+poke[index].num)
-                .css({zIndex:index,backgroundImage:`url(img/${poke[index].num}${poke[index].color}.JPG)`})//这一行加一个层级
+                .css({zIndex:index,backgroundImage:`url(img/${poke[index].num}${poke[index].color}.jpg)`})
                 .appendTo('.table').delay(index*80).animate({left,top,opacity:1});
             index++;
         }
@@ -61,7 +61,7 @@ $(function(){
             .attr('id',-2+"_"+-2)
             .data('num',poke[index].num)
             //.html(poke[index].color+'_'+poke[index].num)
-            .css({zIndex:index,backgroundImage:`url(img/${poke[index].num}${poke[index].color}.JPG)`})
+            .css({zIndex:index,backgroundImage:`url(img/${poke[index].num}${poke[index].color}.jpg)`})
             .appendTo('.table').delay(index*80).animate({left:0,top:480,opacity:1});
     }
     //游戏
